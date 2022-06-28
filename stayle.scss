@@ -1,0 +1,626 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #1D1D1D;
+}
+
+a{
+    text-decoration: none;
+    color: #292929;
+}
+
+.btn{
+    width: 324px;
+    height: 56px;
+    background: #FFFFFF;
+    border-radius: 40px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 27px;
+    text-align: center;
+    color: #1D1D1D;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    cursor: pointer;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    &:hover{
+        box-shadow: 1px 4px 16px rgba(232, 232, 240, 0.4);
+    }
+    &:active{
+        box-shadow: 1px 4px 16px rgba(232, 232, 240, 0.64);
+    }
+}
+
+.container{
+    max-width:  1020px;
+    margin: 0 auto;
+    padding: 0 10px;
+    overflow: hidden;
+}
+
+.burger{
+    height: 20px;
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    
+    &__slise{
+        width: 100%;
+        height: 20%;
+        border-radius: 3px;
+        background: #292929;
+        transition: .3s;
+    }
+    &__slise:not(:first-child){
+        margin-top: 20%;
+    }
+    &:hover &__slise-1{
+        width: 50%;
+    }
+    &:hover &__slise-2{
+        width: 90%;
+    }
+    &:hover &__slise-3{
+        width: 70%;
+    }
+}
+.menu:target{
+    left: 0;
+}
+.menu{
+    height: 100vh;
+    width: 100vw;
+    background-color: #E5E5E5;
+    position: absolute;
+    top: 0;
+    left: -100vw;
+    padding-top: 36px;
+    transition: .3s;
+
+    &__exit{
+        width: 22px;
+        height: 22px;
+        position: relative;
+        transition: .3s;
+        &__slise{
+            position: absolute;
+            top: 50%;
+            left: 0;
+            height: 3px;
+            width: 100%;
+            background: #292929;
+            border-radius: 3px;
+            transform: rotate(-45deg);
+            transform-origin: center;
+            
+        }
+        &__slise:not(:first-child){
+            transform: rotate(45deg)
+        }
+        &:hover{
+            transform: scale(1.2);
+        }
+    }
+    &__content{
+        width: 100%;
+        height: calc(100vh - 60px - 36px - 40px);
+    }
+    &__title{
+        margin: 40px 0;
+    }
+    &__list{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 22px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        list-style-type: none;
+        margin: 32px 0;
+        a {
+            position: relative;
+        }
+        a::before {
+            content: '';
+            position: absolute;
+            left: 0; bottom: -5px;
+            width: 0%;
+            height: 1px;
+            background-color: #1D1D1D;
+            transition: width .3s;;
+        }
+        a:hover::before{
+            width: 100%;
+        }
+    }
+
+    &__futer{
+        display: flex;
+        flex-direction: column;
+
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #1D1D1D;
+        &__text{
+            width: fit-content;
+            margin: 16px 0;
+            position: relative;
+
+        }
+        &__text::before{
+            content: '';
+            position: absolute;
+            left: 0; bottom: -5px;
+            width: 100%;
+            height: 1px;
+            background-color: #1D1D1D;
+        }
+    }
+}
+
+.phone{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__text{
+        margin-right: 12px;
+        height: 16px;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 16px;
+        text-align: right;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #292929;
+
+        opacity: .0;
+        transition: .3s;
+    }
+    &__icon{
+        margin-right: 40px;
+        cursor: pointer;
+        color: #292929;
+    }
+    &:hover &__text{
+        opacity: .9;
+    }
+}
+
+.header{
+    background-image: url(./img/header/headerBg.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    padding: 36px 0;
+    &__nav{
+        display: flex;
+        
+    }
+
+    &__top{
+        display: flex;
+        width: 100%;
+        height: 60px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__content{
+        display: flex;
+        width: 100%;
+        height: calc(100vh - 60px - 36px);
+
+        align-items: flex-end;
+        justify-content: center;
+    }
+    &__title{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 80px;
+        line-height: 100%;
+        letter-spacing: -1.5px;
+        color: #1D1D1D;
+        margin-bottom: 122px;
+    }
+}
+
+.about_us{
+    $about_us_height: 380px;
+    background-color: #1D1D1D;
+    height: $about_us_height;
+    &__content{
+        display: flex;
+        
+    }
+    &__title, &__text{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: $about_us_height;
+        color: #FFFFFF;
+    }
+    &__title{
+        // width: calc(100% / 2);
+        min-width: 400px;
+
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 64px;
+        line-height: 100%;
+
+        letter-spacing: -1.5px;
+    }
+    &__text{
+        padding: 60px;
+
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 34px;
+    }
+}
+
+.card{
+    min-width: 310px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+    padding: 15px;
+    transition: .3s;
+    margin: 10 0;
+    &__img{
+        width: 100%;
+    }
+    &__text{
+        font-family: 'Poppins';
+        font-style: normal;
+        color: #FFFFFF;
+    }
+    &__name{
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 140%;
+        margin-top: 32px;
+    }
+    &__description{
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 140%;
+        margin-top: 8px;
+    }
+    &__price{
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 140%;
+        margin-top: 16px;
+    }
+    &__price::before{
+        content: "$ ";
+    }
+    &:hover{
+        box-shadow: inset  0px 0px 10px white;
+    }
+}
+
+.compare_bikes{
+    background-color: #1D1D1D;
+    &__title{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 64px;
+        line-height: 100%;
+
+        text-align: center;
+        letter-spacing: -1.5px;
+
+        color: #FFFFFF;
+    }
+    &__cards{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+        justify-content: space-around;
+        margin-top: 48px;
+    }
+}
+
+.big-small{
+    grid-template-columns: 2fr 1fr;
+}
+.small-big{
+    grid-template-columns: 1fr 2fr;
+}
+.details{
+    background-color: #1D1D1D;
+    margin: 100px 0;
+    &__title{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 64px;
+        line-height: 100%;
+        text-align: center;
+        letter-spacing: -1.5px;
+        color: #FFFFFF;
+        margin: 48px 0;
+    }
+    &__img{
+        display: grid;
+        justify-content: center;
+        gap: 24px;
+        margin-top: 48px;
+        img{
+            
+        }
+        &-item{
+            object-fit: fill;
+        }
+    }
+    &__description{
+        color: #FFFFFF;
+        width: 65%;
+        &__title{
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 140%;
+            margin-top: 28px;
+        }
+        &__text{
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 140%;
+            margin-top: 8px;
+        }
+    }
+    &__btn{
+        margin: 48px auto;
+    }
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    input{
+        background: #F8F8FA;
+        border-radius: 40px;
+        height: 48px;
+        width: 100%;
+        margin: 8px 0;
+        padding: 0 20px;
+        border: none;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+
+        color: #292929;
+    }
+    input:hover{
+        border: 1px solid #D5D7DE;
+    }
+    input:focus{
+        border: 1px solid #292929;
+        box-shadow: none;
+    }
+    textarea{
+        width: 100%;
+        min-height: 148px;
+        margin: 8px 0;
+        padding: 12px 20px;
+        border-radius: 16px;
+        background-color: #f8f8f8;
+        font-size: 16px;
+        resize: none;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        overflow: hidden;
+        color: #292929;
+    }
+    &__btn{
+        margin-top: 32px;
+        width: 100%;
+    }
+}
+
+.contact_us{
+    margin-bottom: 180px;
+    &__title{
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 48px;
+
+        text-align: center;
+        letter-spacing: -1.5px;
+        margin: 48px 0;
+        color: #FFFFFF;
+    }
+    &__content{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 200px;
+    }
+    &__text{
+        min-width: 237px;
+        &_title{
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 140%;
+            
+            color: #FFFFFF;
+            margin: 8px 0;
+        }
+        &_value{
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 140%;
+
+            color: #FFFFFF;
+            margin-bottom: 24px;
+        }
+    }
+}
+
+.futer{
+    background-image: url(./img/futer/futerBG.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 555px;
+}
+
+@media screen and (max-width: 1024px) {
+    .container{
+        width: 744px;
+    }
+    .compare_bikes{
+        &__cards{
+            grid-template-columns: 1fr;
+        }
+    }
+    .details{
+        &__img{
+            img{
+                
+            }
+        }
+    }
+    .contact_us{
+        &__content{
+            gap: 50px;
+        }
+    }
+
+}
+
+@media screen and (max-width: 744px) {
+    .container{
+        width: 600px;
+    }
+
+    .header{
+        &__title{
+            font-size: 64px;
+        }
+    }
+    .about_us{
+        &__title{
+            min-width: 300px;
+            font-size: 48px;
+        }
+        &__text{
+            font-size: 16px;
+            line-height: 23px;
+        }
+
+    }
+    .compare_bikes{
+        &__cards{
+            grid-template-columns: 1fr;
+        }
+    }
+    .big-small{
+        grid-template-columns: 1fr 1fr;
+    }
+    .small-big{
+        grid-template-columns: 1fr 1fr;
+    }
+    .contact_us{
+        &__content{
+            grid-template-columns: 1fr;
+        }
+    }
+}
+@media screen and (max-width: 600px) {
+    .container{
+        max-width: 310px;
+    }
+    .big-small{
+        grid-template-columns: 1fr 1fr;
+    }
+    .small-big{
+        grid-template-columns: 1fr 1fr;
+    }
+    .header{
+        &__logo{
+            img{
+                max-width: 100px;
+            }
+        }
+        &__title{
+            font-size: 36px;
+        }
+    }
+    .about_us{
+        &__content{
+            flex-direction: column;
+            max-width: 325px;
+        }
+        &__title{
+            height: 125px;
+        }
+        &__text{
+            height: 280px;
+        }
+    }
+    .card{
+
+    }
+    .compare_bikes{
+        &__content{
+            max-width: 325px;
+        }
+    }
+    .details{
+        &__title, &__btn{
+            max-width: 300px;
+        }
+        &__img{
+            max-width: 325px;
+            overflow: hidden;
+        }
+    }
+    .contact_us{
+        &__title, &__content{
+            max-width: 325px;
+        }
+    }
+}
